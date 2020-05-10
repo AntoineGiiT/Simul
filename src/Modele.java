@@ -4,13 +4,15 @@ import java.util.Deque;
 public class Modele {
 	// Variables
 	int nbIndividus, nbEtages;
-	static int width, height;
+	int width, height;
 	Deque<Etages> etages;
 	Deque<Individus> individus;
 	
 	// Constructeur
 	public Modele(int nbIndividus, int nbEtages, int width, int height) {
 		this.nbEtages = nbEtages;
+		this.height = height;
+		this.width = width;
 		this.etages = createEtages(nbEtages);
 		this.nbIndividus = nbIndividus;
 		this.individus = createIndividus(nbIndividus);
@@ -20,8 +22,14 @@ public class Modele {
 	public int getNbIndividus() {
 		return this.nbIndividus;
 	}
+	public Deque<Individus> getIndividus(){
+		return this.individus;
+	}
 	public int getNbEtages() {
 		return this.nbEtages;
+	}
+	public Etages getEtagesRDC(){
+		return this.etages.getFirst();
 	}
 	public int getWidth() {
 		return this.width;
@@ -29,10 +37,14 @@ public class Modele {
 	public int getHeight() {
 		return this.height;
 	}
-	public Etages getEtagesRDC(){
-		return this.etages.getFirst();
-	}
 	
+	// Setters
+	public void setWidth(int w) {
+		this.width = w;
+	}
+	public void setHeight(int h) {
+		this.height = h;
+	}
 	// Méthodes
 	public Deque<Etages> createEtages(int nbEtages) {
 		Deque<Etages> result = new ArrayDeque<>();

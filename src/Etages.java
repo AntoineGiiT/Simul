@@ -24,6 +24,9 @@ public class Etages {
 	public int getNiveau() {
 		return this.niveau;
 	}
+	public Deque<Obstacles> getObstacles(){
+		return this.obstacles;
+	}
 	
 	// Setters
 	public void setNbEscaliers(int nbEscaliers) {
